@@ -5,7 +5,8 @@
 	  <!-- Default panel contents -->
 	  <div class="panel-heading">Wish List</div>
 	  <div class="panel-body">
-	    <p>Write down the link of your recommended book, share the joy with others~</p>
+	    <p>Write down the Douban link of your recommended book, share the joy with others~</p>
+	    <p>We only display most 20 popular books!</p>
 	  </div>
 
 	  <!-- Table -->
