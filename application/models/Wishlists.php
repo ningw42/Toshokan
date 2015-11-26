@@ -34,4 +34,18 @@ class Wishlists extends Data_Mapper {
 			'is_stocked_in' => $this->is_stocked_in
 		);
 	}
+
+	public function save($is_update = NULL)
+  {
+    if($is_update)
+    {
+    	//update
+    	$this->db->where('id', $this->id);
+    	$this->db->update(static::$table, $this->get_fields());
+    }
+    else
+    {
+    	$this->db->insert(static::$table, $this->get_fields());
+    }
+  }
 }

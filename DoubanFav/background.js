@@ -3,8 +3,10 @@ chrome.browserAction.onClicked.addListener(function (tab) { //Fired when User Cl
       var url = tab.url;
       var exp = new RegExp('\/([0-9]+)\/', 'i');
       var id = exp.exec(url)[1];
-      $.post('http://zhangteng.yifangyun.com/index.php/wishlist/add', {id:id}, function (data) {
-        console.log(data);
+      $.post('http://zhangteng.yifangyun.com/index.php/wishlist/addbyid', {id:id}, function (data) {
+        if (data === 'success') {
+          alert('成功加入愿望单');
+        }
       });
     }
 });

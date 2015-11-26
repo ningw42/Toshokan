@@ -20,7 +20,7 @@
 		    </tr>
 		 </thead>
 		 <tbody>
-			  <?php 
+			  <?php
 			  		$i = 1;
 			  		foreach ($wishlists as $wishlist) {
 			  			if(!$wishlist->is_stocked_in){
@@ -29,13 +29,13 @@
 						  	<th><?php echo $i++ ?></th>
 						  	<td><?php echo $wishlist->user_name ?></td>
 						  	<td><a href = '<?php echo $wishlist->link ?>' target="_blank"><?php echo $wishlist->link ?></a></td>
-						  	
+
 						  	<td><button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#stock-in-modal" onclick="stock_in('<?php echo $wishlist->link ?>', '<?php echo $wishlist->id ?>')">stock in</button></td>
 
 					  	</tr>
 			  		<?php
 			  			}
-			  		} 
+			  		}
 			  		?>
 			  		<tr>
 					  	<th><?php echo $i++ ?></th>

@@ -10,7 +10,7 @@ class Data_Mapper extends CI_Model
     $this->load->database();
   }
 
-  public function save()
+  public function save($is_update = NULL)
   {
     if(!empty($this->id))
     {
