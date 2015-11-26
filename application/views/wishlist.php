@@ -40,7 +40,7 @@
 			  		<tr>
 					  	<th><?php echo $i++ ?></th>
 					  	<td><?php echo $wishlist->user_name ?></td>
-					  	<td><input type="text" id = 'new_wish'></td>
+					  	<td><input class="col-md-10" type="text" id = 'new_wish'></td>
 					  	<td></td>
 					  	<td><button id="add-button" type="button" class="btn btn-primary btn-sm" onclick="add_to_wish_list()">add to list</button></td>
 					 </tr>

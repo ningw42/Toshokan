@@ -68,13 +68,13 @@ class Wishlist extends CI_Controller {
   {
   	$this->load->model('wishlists');
   	//get all wish lists
-  	$wishlists = Wishlists::findOnCond(array());
+  	$wishlists = Wishlists::findOnCond(array(), 20, 'count', 'DESC');
   	$data['wishlists'] = $wishlists;
   	$this->load->view('header');
-	$this->load->view('navbar');
-	$this->load->view('wishlist', $data);
-	$this->load->view('modal');
-	$this->load->view('footer');
+  	$this->load->view('navbar');
+  	$this->load->view('wishlist', $data);
+  	$this->load->view('modal');
+  	$this->load->view('footer');
 
   }
 

@@ -43,11 +43,24 @@ class Data_Mapper extends CI_Model
     * @param  [number] $limit [description]
     * @return array(obj)
     */
-  public static function findOnCond($cond, $limit=null)
+  public static function findOnCond($cond, $limit=null, $order_by=null, $desc_or_asc=null)
   {
     $CI =& get_instance();
     $result = array();
-    $query = $CI->db->get_where(static::$table, $cond, $limit);
+    $CI->db->where( $cond, $limit);
+    
+    if($order_by)
+    {
+      if($desc_or_asc==null)
+      {
+        $CI->db->order_by($order_by, 'ASC');
+      }
+      else
+      {
+        $CI->db->order_by($order_by, $desc_or_asc);
+      }
+    }
+    $query = $CI->db->get(static::$table);
     foreach ($query->result_array() as $row)
     {
         // echo $row;
