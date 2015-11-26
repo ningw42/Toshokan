@@ -80,3 +80,29 @@
     }
   </script>
 </div>
+
+<!-- Modal -->
+<div class="modal fade" id="stock-in-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+          <span class="sr-only">Close</span>
+        </button>
+        <h4 class="modal-title" id="myModalLabel">Thank you!</h4>
+      </div>
+      <div class="modal-body">
+        Book stocked in successfully!
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="reload()">Close</button>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript">
+    function reload () {
+      parent.location.reload();
+    }
+  </script>
+</div>

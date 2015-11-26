@@ -27,7 +27,7 @@
 						  	<th><?php echo $i++ ?></th>
 						  	<td><?php echo $wishlist->user_name ?></td>
 						  	<td><a href = '<?php echo $wishlist->link ?>' target="_blank"><?php echo $wishlist->link ?></a></td>
-						  	<td><button id="return-button" type="button" class="btn btn-success btn-sm">stock in</button></td>
+						  	<td><button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#stock-in-modal" onclick="stock_in('<?php echo $wishlist->link ?>')">stock in</button></td>
 					  	</tr>
 			  		<?php
 			  		} 
@@ -35,8 +35,8 @@
 			  		<tr>
 					  	<th><?php echo $i++ ?></th>
 					  	<td><?php echo $wishlist->user_name ?></td>
-					  	<td><input type="textarea" id = 'new_wish'></td>
-					  	<td><button id="return-button" type="button" class="btn btn-primary btn-sm" onclick="add_to_wish_list()">add to list</button></td>
+					  	<td><input type="text" id = 'new_wish'></td>
+					  	<td><button id="add-button" type="button" class="btn btn-primary btn-sm" onclick="add_to_wish_list()">add to list</button></td>
 					 </tr>
 			  </tbody>
 	  </table>
@@ -45,11 +45,22 @@
 	<script type="text/javascript">
 		function add_to_wish_list(){
 			var host = 'http://zhangteng.yifangyun.com/index.php/';
-		    var xmlHttp = new XMLHttpRequest();
+		    // var xmlHttp = new XMLHttpRequest();
 		    var link = $('#new_wish').val();
 		    $.post( host + 'wishlist/add', {link:link},function( data ) {
 			  // $( ".result" ).html( data );
 			  location.reload();
+			});
+
+		}
+
+		function stock_in(link){
+			var host = 'http://zhangteng.yifangyun.com/index.php/';
+		    // var xmlHttp = new XMLHttpRequest();
+		    console.log(link);
+		    $.post( host + 'crawler/add', {urls:link},function( data ) {
+			  // $( ".result" ).html( data );
+			  // location.reload();
 			});
 
 		}
