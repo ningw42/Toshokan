@@ -47,6 +47,7 @@ class Wishlist extends CI_Controller {
       // echo "string";
       $wishlist->count += 1;
       $wishlist->save(TRUE);
+      echo "update";
     } else {
       // echo $id;
       $user = $this->current_user();
@@ -59,8 +60,8 @@ class Wishlist extends CI_Controller {
       $wishlist->id = $id;
       $wishlist->count = 1;
       $wishlist->save(FALSE);
+      echo "add";
     }
-    echo "success";
   }
 
   public function archive()
