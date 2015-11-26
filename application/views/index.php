@@ -8,7 +8,7 @@
 			?>
 			<div class="panel panel-default">
 				<div class="panel-heading"><a href="<?php echo $value->link; ?>" class="pull-right">View on Douban</a>
-					<h4 href="<?php echo $_SERVER['HTTP_HOST'].'/index.php/book/index'.$value->id; ?>"><?php echo $value->name; ?></h4>
+					<h4><span onclick="clickToDetails(<?php echo $value->id; ?>);"><?php echo $value->name; ?></span></h4>
 				</div>
 				<div class="panel-body">
 					<div>
@@ -45,7 +45,7 @@
 			?>
 			<div class="panel panel-default">
 				<div class="panel-heading"><a href="<?php echo $value->link; ?>" class="pull-right">View on Douban</a>
-					<h4><?php echo $value->name; ?></h4>
+					<h4><span onclick="clickToDetails(<?php echo $value->id; ?>);"><?php echo $value->name; ?></span></h4>
 				</div>
 				<div class="panel-body">
 					<div>
@@ -82,7 +82,7 @@
 			?>
 			<div class="panel panel-default">
 				<div class="panel-heading"><a href="<?php echo $value->link; ?>" class="pull-right">View on Douban</a>
-					<h4><?php echo $value->name; ?></h4>
+					<h4><span onclick="clickToDetails(<?php echo $value->id; ?>);"><?php echo $value->name; ?></span></h4>
 				</div>
 				<div class="panel-body">
 					<div>

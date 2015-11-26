@@ -13,7 +13,7 @@ class Books extends Data_Mapper {
 	public $inventory;
 
 	public static $table = 'books';
-
+	
 	public function __construct($data=null)
 	{
 		if($data)

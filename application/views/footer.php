@@ -16,6 +16,10 @@
     evt.preventDefault();
   });
 
+  function clickToDetails(bookid) {
+    console.log(bookid);
+  };
+
   $(document).ready(function() {
 
     /* toggle layout */
