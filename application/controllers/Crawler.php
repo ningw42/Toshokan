@@ -10,9 +10,12 @@ class Crawler extends CI_Controller
   public function add()
   {
     $post_data = $this->input->post();
+    $w_id = $post_data['w_id'];
+    $this->load->model('Wishlists');
     $url_array = $this->parse_url($post_data['urls']);
     $results = array();
     foreach ($url_array as $key => $value) {
+
 
       // $start = strpos($value, 'subject') + 8;
       // $end = $start;
@@ -22,6 +25,10 @@ class Crawler extends CI_Controller
       preg_match('/([0-9]+)/i', $value, $temp);
       $id = $temp[0];
       $results[] = $this->get_info($id);
+      
+      $wishlist = Wishlists::findByIds($w_id);
+      $wishlist->is_stocked_in = 1;
+      $wishlist->save(TRUE);
     }
 
     $this->load->model('Books');
