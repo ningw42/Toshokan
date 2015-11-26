@@ -1,5 +1,5 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
-class Wish_list extends Data_Mapper {
+class Wishlist extends Data_Mapper {
 	public $id;
 	public $user_id;
 	public $link;
@@ -14,9 +14,8 @@ class Wish_list extends Data_Mapper {
 			$this->user_id = $data['user_id'];
 			$this->link = $data['link'];
 		}
-		
-	}
 
+	}
 
 	public function get_fields()
 	{
@@ -26,7 +25,4 @@ class Wish_list extends Data_Mapper {
 			'link' => $this->link
 		);
 	}
-
-	
-
 }
