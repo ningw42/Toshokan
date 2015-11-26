@@ -8,7 +8,7 @@
 			?>
 			<div class="panel panel-default">
 				<div class="panel-heading"><a href="<?php echo $value->link; ?>" class="pull-right">View on Douban</a>
-					<h4><span onclick="clickToDetails(<?php echo $value->id; ?>);"><?php echo $value->name; ?></span></h4>
+					<h4><span><?php echo $value->name; ?></span></h4>
 				</div>
 				<div class="panel-body">
 					<div>
@@ -31,6 +31,13 @@
   							</tr>
   						</table>
             </div>
+						<div class="col-md-12">
+							<?php if ($value->inventory > 0) {
+								echo "<button id=\"borrow\" onclick=\"borrowBook(". $value->id . ")\" class=\"btn btn-success col-md-12\">来一本</button>";
+							} else {
+								echo "<button class=\"btn btn-success col-md-12\" disabled=\"disabled\">借完了</button>";
+							}?>
+						</div>
 					</div>
 					<div class="clearfix"></div>
 					<hr>
@@ -68,6 +75,13 @@
   							</tr>
   						</table>
             </div>
+						<div class="col-md-12">
+							<?php if ($value->inventory > 0) {
+								echo "<button id=\"borrow\" onclick=\"borrowBook(". $value->id . ")\" class=\"btn btn-success col-md-12\">来一本</button>";
+							} else {
+								echo "<button class=\"btn btn-success col-md-12\" disabled=\"disabled\">借完了</button>";
+							}?>
+						</div>
 					</div>
 					<div class="clearfix"></div>
 					<hr>
@@ -105,6 +119,13 @@
   							</tr>
   						</table>
             </div>
+						<div class="col-md-12">
+							<?php if ($value->inventory > 0) {
+								echo "<button id=\"borrow\" onclick=\"borrowBook(". $value->id . ")\" class=\"btn btn-success col-md-12\">来一本</button>";
+							} else {
+								echo "<button class=\"btn btn-success col-md-12\" disabled=\"disabled\">借完了</button>";
+							}?>
+						</div>
 					</div>
 					<div class="clearfix"></div>
 					<hr>

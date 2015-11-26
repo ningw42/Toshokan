@@ -5,7 +5,32 @@ class Book extends CI_Controller {
 
   public function lend()
   {
+    $inputs = $this->input->post();
+    $bid = $inputs['bid'];
+    // HARD CODE HERE
+    $uid = $inputs['uid'] ? $insputs['uid'] : 2;
 
+    $this->load->model('books');
+    $book = Books::findByIds($bid);
+    if ($book->inventory > 0) {
+      $book->inventory -= 1;
+      $book->save();
+
+      $bt = time();
+      $data = array(
+        'user_id' => $uid,
+        'book_id' => $bid,
+        'book_name' => $book->name,
+        'borrow_time' => $bt,
+        'due' => $bt + (7 * 24 * 60 * 60),
+        'is_returned' => 0,
+      );
+      $this->load->model('records');
+      Records::insert($data);
+      echo "success";
+    } else {
+      echo "failed";
+    }
   }
 
   public function ret($bid, $rid)

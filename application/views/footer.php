@@ -18,9 +18,7 @@
     evt.preventDefault();
   });
 
-  function clickToDetails(bookid) {
-    console.log(bookid);
-  };
+
 
   $(document).ready(function() {
 
@@ -34,6 +32,17 @@
         $(this).addClass('on');
       }
     });
+
+    window.borrowBook = function(bookid) {
+      console.log(bookid);
+      $.post( "http://zhangteng.yifangyun.com/index.php/Book/lend/", {bid: bookid, uid: null}, function( data ) {
+        if (data === 'success') {
+          alert('可以去拿书了');
+        } else {
+          alert('来晚了');
+        }
+      });
+    };
 
   });
 </script>
