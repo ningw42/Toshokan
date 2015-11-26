@@ -1,5 +1,6 @@
 .DS_Store
 user_guide
+formatercache
 .sync-config.cson
 */config/development
 */logs/log-*.php
