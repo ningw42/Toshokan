@@ -11,23 +11,6 @@ class User extends Data_Mapper {
 
 	public static $table = 'users';
 
-	// public $data = array(
-	// 	'id' => $this->id,
-	// 	'name' => $this->name,
-	// 	'avatar' => $this->department,
-	// 	'phone' => $this->phone,
-	// 	'role' => $this->role,
-	// 	'borrow_times' => $this->borrow_times,
-	// 	'password' => $this->password
-	// );
-	// 
-	// public function __construct()
- //    {
- //        // Call the CI_Model constructor
- //        parent::__construct();
- //        $this->load->database();
- //    }
-
 	public function get_fields()
 	{
 		return array(
@@ -39,6 +22,21 @@ class User extends Data_Mapper {
 			'borrow_times' => $this->borrow_times,
 			'password' => $this->password
 		);
+	}
+
+	public function __construct($data=null)
+	{
+		if($data)
+		{
+			$this->id = $data['id'];
+			$this->name = $data['name'];
+			$this->avatar = $data['avatar'];
+			$this->department = $data['phone'];
+			$this->role = $data['role'];
+			$this->borrow_times = $data['borrow_times'];
+			$this->password = $data['password'];
+		}
+		
 	}
 
 	

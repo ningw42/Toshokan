@@ -8,6 +8,14 @@ class Record extends Data_Mapper {
 
 	public static $table = 'records';
 
+	public function __construct($data)
+	{
+		$this->id = $data['id'];
+		$this->user_id = $data['user_id'];
+		$this->book_id = $data['book_id'];
+		$this->borrow_time = $data['borrow_time'];
+		$this->due = $data['due'];
+	}
 
 	public function get_fields()
 	{

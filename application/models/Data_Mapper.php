@@ -6,6 +6,7 @@ class Data_Mapper extends CI_Model
 	public function __construct()
     {
         // Call the CI_Model constructor
+        parent::__construct();
         $this->load->database();
     }
 
@@ -23,12 +24,36 @@ class Data_Mapper extends CI_Model
     	}
     }
 
-    public static function findById($id)
+    /**
+     * @param  [type] $id [description]
+     * @return [type]     [description]
+     */
+    public static function findByIds($id)
     {
         $CI =& get_instance();
     	$query = $CI->db->get_where(static::$table, array('id' => $id));
-        $obj = new static();
-    	return $query->row_array();
+        return new static($query->row_array());
+    }
+
+    public static function findOnCond($cond, $limit)
+    {
+
+    }
+
+    /**
+     * support insert batch
+     */
+    public static function insert()
+    {
+
+    }
+
+    /**
+     * support delete batch
+     */
+    public static function delete()
+    {
+
     }
 
 }
