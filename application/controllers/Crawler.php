@@ -13,10 +13,14 @@ class Crawler extends CI_Controller
     $url_array = $this->parse_url($post_data['urls']);
     $results = array();
     foreach ($url_array as $key => $value) {
-      $start = strpos($value, 'subject') + 8;
-      $end = $start;
-      for (; is_numeric($value[$end]); $end++) {}
-      $id = substr($value, $start, $end - $start);
+
+      // $start = strpos($value, 'subject') + 8;
+      // $end = $start;
+      // for (; is_numeric($value[$end]); $end++) {}
+      // $id = substr($value, $start, $end - $start);
+      $temp = [];
+      preg_match('/([0-9]+)/i', $value, $temp);
+      $id = $temp[0];
       $results[] = $this->get_info($id);
     }
 

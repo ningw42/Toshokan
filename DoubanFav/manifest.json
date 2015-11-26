@@ -18,5 +18,5 @@
     "background": {
       "scripts": ["jquery.min.js", "background.js"]
     },
-    "permissions": ["http://book.douban.com/*"]
+    "permissions": ["http://book.douban.com/*", "http://zhangteng.yifangyun.com/*"]
 }
