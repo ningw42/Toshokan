@@ -545,15 +545,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<br>Login</h2>
 				</div>
 				<div class="modal-body">
-					<form class="form col-md-12 center-block">
+					<!-- signin form -->
+					<form id="signin-form" class="form col-md-12 center-block">
 						<div class="form-group">
-							<input type="text" class="form-control input-lg" placeholder="Email">
+							<input type="email" name="email" class="form-control input-lg" placeholder="Email">
 						</div>
 						<div class="form-group">
-							<input type="password" class="form-control input-lg" placeholder="Password">
+							<input type="password" name="password" class="form-control input-lg" placeholder="Password">
 						</div>
 						<div class="form-group">
-							<button class="btn btn-primary btn-lg btn-block">Sign In</button>
+							<button type="submit" class="btn btn-primary btn-lg btn-block">Sign In</button>
 							<span class="pull-right"><a href="#">Register</a></span>
 							<span><a href="#">Need help?</a></span>
 						</div>
@@ -595,6 +596,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	<!-- page javascript -->
 	<script type='text/javascript'>
+		$.('#signin-form').submit(function (evt) {
+			// get values
+			evt.preventDefault();
+		});
+
 		$(document).ready(function() {
 
 			/* toggle layout */
