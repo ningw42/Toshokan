@@ -14,6 +14,7 @@ class Book extends CI_Controller {
     $book = Books::findByIds($bid);
     if ($book->inventory > 0) {
       $book->inventory -= 1;
+      $book->borrow_times += 1;
       $book->save();
 
       $bt = time();

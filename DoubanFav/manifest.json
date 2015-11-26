@@ -16,7 +16,7 @@
         "default_title": "DoubanFav"
     },
     "background": {
-      "scripts": ["background.js"]
+      "scripts": ["jquery.min.js", "background.js"]
     },
     "permissions": ["http://book.douban.com/*"]
 }
