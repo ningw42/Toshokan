@@ -6,7 +6,29 @@ class Home extends CI_Controller {
 	// home page for display books
 	public function index()
 	{
-		$this->loadAll('index', array());
+		$this->load->model('Book');
+		$books = Book::findOnCond(array(), 0);
+
+		$results = array(
+											'one' => array(),
+											'two' => array(),
+											'three' => array()
+										);
+		foreach ($books as $key => $value) {
+			switch ($key % 3) {
+				case 0:
+					$results['one'][] = $value;
+					break;
+				case 1:
+					$results['two'][] = $value;
+					break;
+				case 2:
+					$results['three'][] = $value;
+					break;
+			}
+		}
+
+		$this->loadAll('index', $results);
 	}
 
 	// get User record
