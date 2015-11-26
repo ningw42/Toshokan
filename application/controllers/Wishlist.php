@@ -5,7 +5,14 @@ class Wishlist extends CI_Controller {
 
   public function add()
   {
-
+  	$link = $this->input->post('link');
+  	$this->load->model('wishlists');
+  	$user = $this->current_user();
+  	$wishlist = new Wishlists();
+  	$wishlist->link = $link;
+  	$wishlist->user_id = $user->id;
+  	$wishlist->user_name = $user->name;
+  	$wishlist->save();
   }
 
   public function archive()
@@ -26,4 +33,10 @@ class Wishlist extends CI_Controller {
   {
     
   }
+
+  private function current_user()
+	{
+		$this->load->model('users');
+		return Users::findByIds(2);
+	}
 }

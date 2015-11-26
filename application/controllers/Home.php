@@ -64,7 +64,7 @@ class Home extends CI_Controller {
 		$this->load->view('footer');
 	}
 
-	private function current_user()
+	public function current_user()
 	{
 		$this->load->model('users');
 		return Users::findByIds(2);

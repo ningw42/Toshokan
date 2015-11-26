@@ -35,7 +35,7 @@
 			  		<tr>
 					  	<th><?php echo $i++ ?></th>
 					  	<td><?php echo $wishlist->user_name ?></td>
-					  	<td><input type="text" id = 'new_wish'></td>
+					  	<td><input type="textarea" id = 'new_wish'></td>
 					  	<td><button id="return-button" type="button" class="btn btn-primary btn-sm" onclick="add_to_wish_list()">add to list</button></td>
 					 </tr>
 			  </tbody>
@@ -47,12 +47,11 @@
 			var host = 'http://zhangteng.yifangyun.com/index.php/';
 		    var xmlHttp = new XMLHttpRequest();
 		    var link = $('#new_wish').val();
-		    var data = {
-		    	'link':link
-		    };
-		    xmlHttp.open( "POST", host + 'wishlist/add', false); // false for synchronous request
-		    xmlHttp.send( data );
-		    return xmlHttp.responseText;
+		    $.post( host + 'wishlist/add', {link:link},function( data ) {
+			  // $( ".result" ).html( data );
+			  location.reload();
+			});
+
 		}
 	</script>
 
