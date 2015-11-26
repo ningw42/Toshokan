@@ -14,10 +14,10 @@
 	    <thead>
 		    <tr>
 		      <th>#</th>
-		      <th>user_name</th>
-		      <th>link</th>
-		      <th>like</th>
-		      <th>action</th>
+		      <th>User</th>
+		      <th>Link</th>
+		      <th>Favs</th>
+		      <th>Action</th>
 		    </tr>
 		 </thead>
 		 <tbody>
