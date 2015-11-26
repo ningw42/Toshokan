@@ -13,8 +13,15 @@ class Crawler extends CI_Controller
     $url_array = $this->parse_url($post_data['urls']);
     $results = array();
     foreach ($url_array as $key => $value) {
-      $results[] = $this->get_html($value);
+      $start = strpos($value, 'subject') + 8;
+      $end = $start;
+      for (; is_numeric($value[$end]); $end++) {}
+      $id = substr($value, $start, $end - $start);
+      $results[] = $this->get_info($id);
     }
+
+    $this->load->model('Books');
+    Books::insert_batch($results);
   }
 
   private function parse_url($str)
@@ -23,19 +30,27 @@ class Crawler extends CI_Controller
     return $results;
   }
 
-  private function get_html($url)
+  private function get_info($id)
   {
-    $dom = new Dom;
-    $dom->load($url);
-    $info = $dom->find('#info', 0);
-    echo $info;
-  }
-
-  private function parse_html($html)
-  {
+    $json_content = file_get_contents('https://api.douban.com/v2/book/'.$id);
+    $obj = json_decode($json_content);
+    $tag_count = count($obj->tags);
+    $tag_count = $tag_count > 3 ? 3 : $tag_count;
+    $tags = "";
+    $i = 0;
+    for (; $i < $tag_count - 1; $i++) {
+      $tags .= ($obj->tags[$i]->name.', ');
+    }
+    $tags .= $obj->tags[$i]->name;
     return array(
-      'name' => $name,
-      'author' => $author
+      'name' => $obj->title,
+      'author' => $obj->author[0],
+      'cover' => $obj->image,
+      'publisher' => $obj->publisher,
+      'link' => $obj->alt,
+      'description' => $obj->summary,
+      'price' => $obj->price,
+      'tag' => $tags,
     );
   }
 }

@@ -13,7 +13,7 @@
 				<div class="panel-body">
 					<div>
             <div class="col-md-6">
-						  <img src="http://t3.gstatic.com/images?q=tbn:ANd9GcTZWwnFjNvtvw1VKlPvie2OHdzyRGfTzRfVCAsKwYt9m5SzxuTM" class="img-thumbnail" align="middle">
+						  <img src="<?php echo $value->cover; ?>" class="img-thumbnail" align="middle">
             </div>
             <div class="col-md-6">
               <table class="table table-hover" style="width: auto; margin:0px auto;">
@@ -50,7 +50,7 @@
 				<div class="panel-body">
 					<div>
             <div class="col-md-6">
-						  <img src="http://t3.gstatic.com/images?q=tbn:ANd9GcTZWwnFjNvtvw1VKlPvie2OHdzyRGfTzRfVCAsKwYt9m5SzxuTM" class="img-thumbnail" align="middle">
+						  <img src="<?php echo $value->cover; ?>" class="img-thumbnail" align="middle">
             </div>
             <div class="col-md-6">
               <table class="table table-hover" style="width: auto; margin:0px auto;">
@@ -87,7 +87,7 @@
 				<div class="panel-body">
 					<div>
             <div class="col-md-6">
-						  <img src="http://t3.gstatic.com/images?q=tbn:ANd9GcTZWwnFjNvtvw1VKlPvie2OHdzyRGfTzRfVCAsKwYt9m5SzxuTM" class="img-thumbnail" align="middle">
+						  <img src="<?php echo $value->cover; ?>" class="img-thumbnail" align="middle">
             </div>
             <div class="col-md-6">
               <table class="table table-hover" style="width: auto; margin:0px auto;">
