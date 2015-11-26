@@ -18,12 +18,16 @@ class Book extends CI_Controller {
       $book->save();
 
       $bt = time();
+      $due = $bt + (7 * 24 * 60 * 60);
+      $bt = date("Y-m-d H:i:s", $bt);
+      
+      $due = date("Y-m-d H:i:s", $due);
       $data = array(
         'user_id' => $uid,
         'book_id' => $bid,
         'book_name' => $book->name,
         'borrow_time' => $bt,
-        'due' => $bt + (7 * 24 * 60 * 60),
+        'due' => $due,
         'is_returned' => 0,
       );
       $this->load->model('records');
