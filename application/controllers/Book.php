@@ -8,9 +8,16 @@ class Book extends CI_Controller {
 
   }
 
-  public function ret()
+  public function ret($bid, $rid)
   {
-
+    $this->load->model('books');
+    $book = Books::findByIds($bid);
+    $book->inventory += 1;
+    $book->save();
+    $this->load->model('records');
+    $record = Records::findByIds($rid);
+    $record->is_returned = 1;
+    $record->save();
   }
 
   public function add()

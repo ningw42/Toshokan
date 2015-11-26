@@ -2,6 +2,8 @@
 <script src="/assets/js/jquery.min.js"></script>
 <script src="/assets/js/bootstrap.min.js"></script>
 
+<script type="/assets/js/utils.js"></script>
+
 <!-- page javascript -->
 <script type='text/javascript'>
   $('#signin-form').submit(function (evt) {

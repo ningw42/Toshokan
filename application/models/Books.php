@@ -43,10 +43,10 @@ class Books extends Data_Mapper {
 			'link' => $this->link,
 			'price' => $this->price,
 			'tag' => $this->tag,
-			'description' => $description,
-			'borrow_times' => $borrow_times,
-			'cover' => $cover,
-			'inventory' => $inventory,
+			'description' => $this->description,
+			'borrow_times' => $this->borrow_times,
+			'cover' => $this->cover,
+			'inventory' => $this->inventory,
 		);
 	}
 	/*public function __construct()

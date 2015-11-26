@@ -5,6 +5,7 @@ class Records extends Data_Mapper {
 	public $book_id;
 	public $borrow_time;
 	public $due;
+	public $is_returned;
 
 	public static $table = 'records';
 
@@ -15,8 +16,10 @@ class Records extends Data_Mapper {
 			$this->id = $data['id'];
 			$this->user_id = $data['user_id'];
 			$this->book_id = $data['book_id'];
+			$this->book_name = $data['book_name'];
 			$this->borrow_time = $data['borrow_time'];
 			$this->due = $data['due'];
+			$this->is_returned = $data['is_returned'];
 		}
 		
 	}
@@ -29,7 +32,8 @@ class Records extends Data_Mapper {
 			'user_id' => $this->user_id,
 			'book_id' => $this->book_id,
 			'borrow_time' => $this->borrow_time,
-			'due' => $this->due
+			'due' => $this->due,
+			'is_returned' => $this->is_returned
 		);
 	}
 

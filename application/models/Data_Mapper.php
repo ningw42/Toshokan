@@ -16,11 +16,11 @@ class Data_Mapper extends CI_Model
     {
     	//update
     	$this->db->where('id', $this->id);
-    	$this->db->update($this->table, $this->get_fields());
+    	$this->db->update(static::$table, $this->get_fields());
     }
     else
     {
-    	$this->db->insert($this->table, $this->get_fields());
+    	$this->db->insert(static::$table, $this->get_fields());
     }
   }
 
@@ -38,20 +38,24 @@ class Data_Mapper extends CI_Model
   /**
     * select on condition
     * @param  [array] $cond
-    * ('id>' => 10, 'name' = 'James')
+    * ('id>' => 10, 'name' => 'James')
     * where id >= 10 and name = 'James'
     * @param  [number] $limit [description]
     * @return array(obj)
     */
-  public static function findOnCond($cond, $limit)
+  public static function findOnCond($cond, $limit=null)
   {
     $CI =& get_instance();
     $result = array();
     $query = $CI->db->get_where(static::$table, $cond, $limit);
     foreach ($query->result_array() as $row)
     {
-    	array_push($result, new static($row));
+        // echo $row;
+        $obj = new static($row);
+        // echo $obj->book_name;
+    	array_push($result, $obj);
     }
+    // echo $result[0]['book_name'];
     return $result;
   }
 

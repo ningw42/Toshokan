@@ -34,7 +34,14 @@ class Home extends CI_Controller {
 	// get User record
 	public function record()
 	{
-
+		$user = $this->current_user();
+		$this->load->model('records');
+		
+		$cond = array(
+			'user_id' => $user->id
+			);
+		$records = Records::findOnCond($cond);
+		$data['records'] = $records;
 		$this->loadAll('record', $data);
 	}
 
@@ -59,7 +66,7 @@ class Home extends CI_Controller {
 
 	private function current_user()
 	{
-		$this->load->model('user');
-		return User::findById(2);
+		$this->load->model('users');
+		return Users::findByIds(2);
 	}
 }
