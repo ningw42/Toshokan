@@ -1,9 +1,12 @@
 <div class="container" id="main">
-	<ul class="nav nav-pills">
-	  <li role="presentation" class="active"><a data-toggle="tab" href="#returned">Returned</a></li>
-	  <li role="presentation"><a data-toggle="tab" href="#not-returned">Not returned</a></li>
-	</ul>
+	
 
+	<div class="panel panel-primary">
+	  <!-- Default panel contents -->
+	  <ul class="nav nav-pills">
+		  <li role="presentation" class="active"><a data-toggle="tab" href="#returned">Returned</a></li>
+		  <li role="presentation"><a data-toggle="tab" href="#not-returned">Not returned</a></li>
+	  </ul>
 	<div class="tab-content">
 		<div id="returned" class="tab-pane fade in active">
 		  <table class="table">
@@ -69,6 +72,7 @@
 			  		?>
 			  </tbody>
 			</table>
+		</div>
 		</div>
   </div>
   <script type="text/javascript">
