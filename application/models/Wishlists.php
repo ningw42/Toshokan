@@ -4,6 +4,8 @@ class Wishlists extends Data_Mapper {
 	public $user_id;
 	public $link;
 	public $user_name;
+	public $is_stocked_in;
+	public $count;
 
 	public static $table = 'wish_lists';
 
@@ -15,6 +17,8 @@ class Wishlists extends Data_Mapper {
 			$this->user_id = $data['user_id'];
 			$this->link = $data['link'];
 			$this->user_name = $data['user_name'];
+			$this->count = $data['count'];
+			$this->is_stocked_in = $data['is_stocked_in'];
 		}
 
 	}
@@ -25,7 +29,9 @@ class Wishlists extends Data_Mapper {
 			'id' => $this->id,
 			'user_id' => $this->user_id,
 			'link' => $this->link,
-			'user_name' => $this->user_name
+			'user_name' => $this->user_name,
+			'count' => $this->count,
+			'is_stocked_in' => $this->is_stocked_in
 		);
 	}
 }
