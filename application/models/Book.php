@@ -10,6 +10,7 @@ class Book extends Data_Mapper {
 	public $description;
 	public $borrow_times;
 	public $cover;
+	public $inventory;
 
 	public static $table = 'books';
 
@@ -27,6 +28,7 @@ class Book extends Data_Mapper {
 			$this->description = $data['description'];
 			$this->borrow_times = $data['borrow_times'];
 			$this->cover = $data['cover'];
+			$this->inventory = $data['inventory'];
 		}
 		
 	}
@@ -41,9 +43,10 @@ class Book extends Data_Mapper {
 			'link' => $this->link,
 			'price' => $this->price,
 			'tag' => $this->tag,
-			'description' => $description
+			'description' => $description,
 			'borrow_times' => $borrow_times,
-			'cover' => $cover
+			'cover' => $cover,
+			'inventory' => $inventory
 		);
 	}
 	/*public function __construct()

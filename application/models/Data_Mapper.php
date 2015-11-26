@@ -35,7 +35,7 @@ class Data_Mapper extends CI_Model
     return new static($query->row_array());
   }
 
-	/**
+  /**
     * select on condition
     * @param  [array] $cond
     * ('id>' => 10, 'name' = 'James')
