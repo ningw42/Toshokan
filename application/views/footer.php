@@ -12,6 +12,7 @@
       values[this.name] = $(this).val();
     });
 
+    console.log(values['email'] + ':' + values['password']);
     evt.preventDefault();
   });
 

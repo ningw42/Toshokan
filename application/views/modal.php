@@ -12,10 +12,10 @@
         <!-- signin form -->
         <form id="signin-form" class="form col-md-12 center-block">
           <div class="form-group">
-            <input type="email" name="email" class="form-control input-lg" placeholder="Email">
+            <input type="email" name="email" class="form-control input-lg" placeholder="Email" required autofocus>
           </div>
           <div class="form-group">
-            <input type="password" name="password" class="form-control input-lg" placeholder="Password">
+            <input type="password" name="password" class="form-control input-lg" placeholder="Password" required>
           </div>
           <div class="form-group">
             <button type="submit" class="btn btn-primary btn-lg btn-block">Sign In</button>
