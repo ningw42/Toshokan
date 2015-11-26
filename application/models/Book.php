@@ -13,18 +13,22 @@ class Book extends Data_Mapper {
 
 	public static $table = 'books';
 
-	public function __construct($data)
+	public function __construct($data=null)
 	{
-		$this->id = $data['id'];
-		$this->name = $data['name'];
-		$this->author = $data['author'];
-		$this->publisher = $data['publisher'];
-		$this->link = $data['link'];
-		$this->price = $data['price'];
-		$this->tag = $data['tag'];
-		$this->description = $data['description'];
-		$this->borrow_times = $data['borrow_times'];
-		$this->cover = $data['cover'];
+		if($data)
+		{
+			$this->id = $data['id'];
+			$this->name = $data['name'];
+			$this->author = $data['author'];
+			$this->publisher = $data['publisher'];
+			$this->link = $data['link'];
+			$this->price = $data['price'];
+			$this->tag = $data['tag'];
+			$this->description = $data['description'];
+			$this->borrow_times = $data['borrow_times'];
+			$this->cover = $data['cover'];
+		}
+		
 	}
 
 	public function get_fields()

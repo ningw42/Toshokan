@@ -6,11 +6,15 @@ class Wish_list extends Data_Mapper {
 
 	public static $table = 'wish_lists';
 
-	public function __construct($data)
+	public function __construct($data=null)
 	{
-		$this->id = $data['id'];
-		$this->user_id = $data['user_id'];
-		$this->link = $data['link'];
+		if($data)
+		{
+			$this->id = $data['id'];
+			$this->user_id = $data['user_id'];
+			$this->link = $data['link'];
+		}
+		
 	}
 
 

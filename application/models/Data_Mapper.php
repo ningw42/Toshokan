@@ -35,25 +35,50 @@ class Data_Mapper extends CI_Model
         return new static($query->row_array());
     }
 
+    /**
+     * select on condition
+     * @param  [array] $cond  
+     * ('id>' => 10, 'name' = 'James')
+     * where id >= 10 and name = 'James'
+     * @param  [number] $limit [description]
+     * @return array(obj)
+     */
     public static function findOnCond($cond, $limit)
     {
-
+        $CI =& get_instance();
+        $result = array();
+        $query = $CI->db->get_where(static::$table, $cond, $limit);
+        foreach ($query->result_array() as $row) 
+        {
+            array_push($result, new static($row));
+        }
+        return $result;
     }
 
-    /**
-     * support insert batch
-     */
-    public static function insert()
+    public static function insert($data)
     {
+        $CI =& get_instance();
+        $query = $CI->db->insert(static::$table, $data);
+    }
 
+
+    /**
+     * insert batch
+     */
+    public static function insert_batch($data)
+    {
+        $CI =& get_instance();
+        $query = $CI->db->insert_batch(static::$table, $data);
     }
 
     /**
      * support delete batch
      */
-    public static function delete()
+    public static function delete($cond)
     {
-
+        $CI =& get_instance();
+        $CI->db->where($cond);
+        $CI->db->delete(static::$table);
     }
 
 }

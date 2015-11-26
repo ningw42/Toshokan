@@ -20,9 +20,17 @@ class Test extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->model('user');
-		$user = User::findById(1);
-
-		echo $user->name;
+		$this->load->model('wish_list');
+		$data = array(
+			array(
+				'user_id' => 2,
+				'link' => '123'
+			),
+			array(
+				'user_id' => 2,
+				'link' => 456
+			)
+		);
+		Wish_list::insert_batch($data);
 	}
 }
