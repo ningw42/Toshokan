@@ -26,12 +26,17 @@ class Wishlist extends CI_Controller {
       $user = $this->current_user();
       // echo $user->name;
       // echo $user->id;
+      $obj = $this->get_info($id);
     	$wishlist = new Wishlists();
     	$wishlist->link = $link;
     	$wishlist->user_id = $user->id;
     	$wishlist->user_name = $user->name;
       $wishlist->id = $id;
       $wishlist->count = 1;
+      $wishlist->name = $obj['name'];
+      $wishlist->publisher = $obj['publisher'];
+      $wishlist->author = $obj['author'];
+      $wishlist->price = $obj['price'];
       $wishlist->save(FALSE);
     }
   }
@@ -53,12 +58,17 @@ class Wishlist extends CI_Controller {
       $user = $this->current_user();
       // echo $user->name;
       // echo $user->id;
+      $obj = $this->get_info($id);
       $wishlist = new Wishlists();
       $wishlist->link = 'http://book.douban.com/subject/'.$id.'/';
       $wishlist->user_id = $user->id;
       $wishlist->user_name = $user->name;
       $wishlist->id = $id;
       $wishlist->count = 1;
+      $wishlist->name = $obj['name'];
+      $wishlist->publisher = $obj['publisher'];
+      $wishlist->author = $obj['author'];
+      $wishlist->price = $obj['price'];
       $wishlist->save(FALSE);
       echo "add";
     }
@@ -81,6 +91,19 @@ class Wishlist extends CI_Controller {
   public function delete()
   {
 
+  }
+
+  private function get_info($id)
+  {
+    $json_content = file_get_contents('https://api.douban.com/v2/book/'.$id);
+    $obj = json_decode($json_content);
+    return array(
+      'name' => $obj->title,
+      'author' => $obj->author[0],
+      'publisher' => $obj->publisher,
+      'link' => $obj->alt,
+      'price' => $obj->price,
+    );
   }
 
   private function current_user()
