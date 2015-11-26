@@ -11,7 +11,6 @@ class Books extends Data_Mapper {
 	public $borrow_times;
 	public $cover;
 	public $inventory;
-	public $is_returned;
 
 	public static $table = 'books';
 
@@ -30,9 +29,8 @@ class Books extends Data_Mapper {
 			$this->borrow_times = $data['borrow_times'];
 			$this->cover = $data['cover'];
 			$this->inventory = $data['inventory'];
-			$this->is_returned = $data['is_returned'];
 		}
-		
+
 	}
 
 	public function get_fields()
@@ -49,11 +47,10 @@ class Books extends Data_Mapper {
 			'borrow_times' => $borrow_times,
 			'cover' => $cover,
 			'inventory' => $inventory,
-			'is_returned' => $is_returned
 		);
 	}
 	/*public function __construct()
-	{		
+	{
 		// Call the CI_Model constructor
         parent::__construct();
 	}*/

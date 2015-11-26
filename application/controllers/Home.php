@@ -6,8 +6,8 @@ class Home extends CI_Controller {
 	// home page for display books
 	public function index()
 	{
-		$this->load->model('Book');
-		$books = Book::findOnCond(array(), 0);
+		$this->load->model('Books');
+		$books = Books::findOnCond(array(), 0);
 
 		$results = array(
 											'one' => array(),

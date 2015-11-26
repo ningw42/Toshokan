@@ -28,8 +28,8 @@ class Book extends CI_Controller {
       $this->load->view('errors/html/error_404', $res);
     }
     else {
-      $this->load->model('Book');
-      $book = Book::findByIds($id);
+      $this->load->model('Books');
+      $book = Books::findByIds($id);
       // $comments = Comment::findOnCond();
       // TO DO
       $data = array(
