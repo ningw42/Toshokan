@@ -12,7 +12,8 @@ class Home extends CI_Controller {
 	// get User record
 	public function record()
 	{
-		loadAll('record', $data);
+
+		$this->loadAll('record', $data);
 	}
 
 	// get User wishlist
@@ -32,5 +33,11 @@ class Home extends CI_Controller {
 		$this->load->view($part, $data);
 		$this->load->view('modal');
 		$this->load->view('footer');
+	}
+
+	private function current_user()
+	{
+		$this->load->model('user');
+		return User::findById(2);
 	}
 }

@@ -1,5 +1,5 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
-class Wishlist extends Data_Mapper {
+class Wishlists extends Data_Mapper {
 	public $id;
 	public $user_id;
 	public $link;

@@ -1,5 +1,5 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
-class Record extends Data_Mapper {
+class Records extends Data_Mapper {
 	public $id;
 	public $user_id;
 	public $book_id;

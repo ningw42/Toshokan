@@ -1,5 +1,5 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
-class Book extends Data_Mapper {
+class Books extends Data_Mapper {
 	public $id;
 	public $name;
 	public $author;
@@ -11,6 +11,7 @@ class Book extends Data_Mapper {
 	public $borrow_times;
 	public $cover;
 	public $inventory;
+	public $is_returned;
 
 	public static $table = 'books';
 
@@ -29,6 +30,7 @@ class Book extends Data_Mapper {
 			$this->borrow_times = $data['borrow_times'];
 			$this->cover = $data['cover'];
 			$this->inventory = $data['inventory'];
+			$this->is_returned = $data['is_returned'];
 		}
 		
 	}
@@ -46,7 +48,8 @@ class Book extends Data_Mapper {
 			'description' => $description,
 			'borrow_times' => $borrow_times,
 			'cover' => $cover,
-			'inventory' => $inventory
+			'inventory' => $inventory,
+			'is_returned' => $is_returned
 		);
 	}
 	/*public function __construct()

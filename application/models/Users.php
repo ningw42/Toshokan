@@ -1,5 +1,5 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
-class User extends Data_Mapper {
+class Users extends Data_Mapper {
 	public $id;
 	public $name;
 	public $avatar;
