@@ -15,7 +15,7 @@
 		      <th>#</th>
 		      <th>user_name</th>
 		      <th>link</th>
-		      <!-- <th>like</th> -->
+		      <th>like</th>
 		      <th>action</th>
 		    </tr>
 		 </thead>
@@ -29,7 +29,7 @@
 						  	<th><?php echo $i++ ?></th>
 						  	<td><?php echo $wishlist->user_name ?></td>
 						  	<td><a href = '<?php echo $wishlist->link ?>' target="_blank"><?php echo $wishlist->link ?></a></td>
-
+						  	<td><?php echo $wishlist->count ?></td>
 						  	<td><button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#stock-in-modal" onclick="stock_in('<?php echo $wishlist->link ?>', '<?php echo $wishlist->id ?>')">stock in</button></td>
 
 					  	</tr>
@@ -41,6 +41,7 @@
 					  	<th><?php echo $i++ ?></th>
 					  	<td><?php echo $wishlist->user_name ?></td>
 					  	<td><input type="text" id = 'new_wish'></td>
+					  	<td></td>
 					  	<td><button id="add-button" type="button" class="btn btn-primary btn-sm" onclick="add_to_wish_list()">add to list</button></td>
 					 </tr>
 			  </tbody>
